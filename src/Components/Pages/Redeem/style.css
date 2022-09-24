@@ -1,0 +1,50 @@
+.text {
+  margin-bottom: 1%;
+}
+
+.input {
+  margin-bottom: 2%;
+  width: 418px;
+  height: 36px;
+  left: 0px;
+  top: 24px;
+  padding: 10px;
+display: inline-block;
+  /* White */
+
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  /* Inside auto layout */
+}
+
+@media screen and (max-width: 800px) {
+  .input {
+    width: 295px;
+    height: 36px;
+    margin: 4px 0 0 0;
+    
+    display: inline-block;}
+
+  .text {
+    margin-top: 16px;
+  }
+}
+
+
+.title{
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.inpu{
+  display: inline-block;
+  width: 50px;
+}
+
+.inputs{
+  width: 100px;
+}

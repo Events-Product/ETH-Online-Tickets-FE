@@ -1,0 +1,100 @@
+.nav{
+    background: #151515;;
+}
+
+
+.text{
+    color: #151515;
+    
+}
+
+.ticket{
+    background: white;
+    text-decoration: none;
+    padding: 25%;
+    margin: 10%;
+    color: black;
+    border-radius: 10px;
+
+}
+
+.mobile{
+    background: white;
+    text-decoration: none;
+ 
+
+    color: black;
+    border-radius: 10px;
+
+}
+
+.wallet{
+    text-decoration: none;
+    border: none;
+    background: #26B14B;
+    font-weight: bold;
+    color: white;
+    margin-left:10px;
+    padding: 7px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+
+.ticket:hover{
+    background: white;
+  
+}
+
+.Video{
+    background: white;
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    margin: 0 0 0 30px;
+    border-radius: 10px;
+
+}
+
+.wallet:hover{
+    transform: scale(1.09);
+  
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.close{
+    margin-right: 50px;
+}
+
+
+@font-face {
+    font-family: Knockout;
+    src: url(../../../Knockout-font/Knockout-HTF52-Cruiserweight.otf);
+}
+
+@media screen and (max-width:700px) {
+    .ticket{
+        display: none;
+    }
+
+    .responsive-navbar-nav{
+        display: none;
+    }
+    .wallet{
+        margin: 0 0 0 20px;
+    }
+    
+}
+
+@media screen and (min-width:700px) {
+    .mobile{
+        display: none;
+    }
+
+    
+}
