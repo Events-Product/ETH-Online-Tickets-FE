@@ -1513,10 +1513,13 @@ contract EventPasses is ERC721Enumerable, Ownable {
             _safeMint(msg.sender, totalTier1Minted + 1);
             totalTier1Minted++;
         } else if (tierNum == 2) {
-            _safeMint(msg.sender, totalTier2Minted + 1);
+            _safeMint(msg.sender, totalTier1 + totalTier2Minted + 1);
             totalTier2Minted++;
         } else if (tierNum == 3) {
-            _safeMint(msg.sender, totalTier3Minted + 1);
+            _safeMint(
+                msg.sender,
+                totalTier1 + totalTier2 + totalTier3Minted + 1
+            );
             totalTier3Minted++;
         }
     }
@@ -1553,6 +1556,7 @@ contract EventPasses is ERC721Enumerable, Ownable {
                 ? string(
                     abi.encodePacked(
                         currentBaseURI,
+                        "/",
                         tokenId.toString(),
                         ".json"
                     )
