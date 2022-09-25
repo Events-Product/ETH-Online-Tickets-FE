@@ -111,7 +111,7 @@ function App() {
 
   const checkForRedeemedTickets = async () => {
     try {
-      const url = `https://jorrdaarevent.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const url = `${config.apiBaseUrl}/qrcode/wallet/${account}`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -127,13 +127,9 @@ function App() {
   const checkIfOrganizer = async () => {
     try {
       const organizers = [
-        // "0x66Dc3BFCD29E24fDDeE7f405c705220E6142e4cD",
-        // "0xF8eD0348ce651f1DeFb19737ab7869F5039a5059",
+        "0x66Dc3BFCD29E24fDDeE7f405c705220E6142e4cD",
+        "0xF8eD0348ce651f1DeFb19737ab7869F5039a5059",
         "0x70c1EA05E2A54DfFE1088D4A54CB1a6C25c9077c",
-        "0x4FdFe97d484929e32383E9B4Af907d0fE91864eB",
-        "0x9729eDAAa4c90696920b9b531BCA345fCDde64CE",
-        "0x0e7D6b0180CF0919c7b1BE08eBE35616358aCc01",
-        "0x37ef5b0a412cd864e368c53f77a0de4ac64b93f1", // digitalpratik.eth
       ];
 
       organizers.map((org) => {

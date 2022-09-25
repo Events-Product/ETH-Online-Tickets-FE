@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Description } from "../NoTicket";
 import styled from "styled-components";
-import NormalTicket from "../../../assets/Ticket.svg";
-import VIP from "../../../assets/VIP.svg";
-import VVIP from "../../../assets/VVIP.svg";
-import RVVIP from "../../../assets/RVVIP.svg";
-import RVIP from "../../../assets/RVIP.svg";
-import RTicket from "../../../assets/RTicket.svg";
+import NormalTicket from "../../../assets/Tier1.png";
+import VIP from "../../../assets/Tier2.png";
+import VVIP from "../../../assets/Tier3.png";
+import RVVIP from "../../../assets/RTier3.png";
+import RVIP from "../../../assets/RTier2.png";
+import RTicket from "../../../assets/RTier1.png";
 import TicketToken from "../../../ethereum/TicketToken";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../../config/config";
 const Web3EthAbi = require("web3-eth-abi");
 
 const Background = styled.div`
@@ -137,7 +138,7 @@ const ShowTickets = ({ account }) => {
 
   const getRedeemedTickets = async () => {
     try {
-      const url = `https://jorrdaarevent.kraznikunderverse.com/qrcode/wallet/${account}`;
+      const url = `${config.apiBaseUrl}/qrcode/wallet/${account}`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,

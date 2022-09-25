@@ -7,10 +7,11 @@ const config_goerli = {
 };
 
 const config_opt_goerli = {
-  contractAddress: "",
+  apiBaseUrl: "https://ethglobalhacktickets.kraznikunderverse.com",
+  contractAddress: "0x96498AbCD2b7012BbFcd859DD4a4D9aC2191D693",
   alchemyUrl:
     "https://opt-goerli.g.alchemy.com/v2/sNcVde-i7VmacXUQCQ-o_RrVyJyttTwX",
   chainId: 420,
 };
 
-export const config = config_goerli;
+export const config = config_opt_goerli;

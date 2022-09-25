@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { config } from "../../../config/config";
 
 const Container = styled.div`
-background: #151515;
+  background: #151515;
   height: 100%;
   padding: 3% 3% 24% 3%;
 
@@ -188,9 +189,7 @@ const Organizer = ({ orgId, account }) => {
 
   const getIfTokenScanned = async () => {
     try {
-      const url = `https://jorrdaarevent.kraznikunderverse.com/event/${query.get(
-        "tid"
-      )}`;
+      const url = `${config.apiBaseUrl}/event/${query.get("tid")}`;
       const res = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -226,7 +225,7 @@ const Organizer = ({ orgId, account }) => {
 
   const confirmScan = async () => {
     try {
-      const url = "https://jorrdaarevent.kraznikunderverse.com/event";
+      const url = `${config.apiBaseUrl}/event`;
       const scan_data = {
         organiserID: account,
         orgName: "test",
@@ -288,8 +287,7 @@ const Organizer = ({ orgId, account }) => {
             )
           ) : (
             <ScanMessage>
-              Token already scanned by Production team
-              at
+              Token already scanned by Production team at
               <br />
               {scanInfo.DateOfScan}
               <br />

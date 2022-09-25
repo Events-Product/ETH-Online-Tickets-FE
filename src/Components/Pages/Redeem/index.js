@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Description, Title } from "../NoTicket";
 import styled from "styled-components";
-import Normal from "../../../assets/Ticket.svg";
-import VIP from "../../../assets/VIP.svg";
-import VVIP from "../../../assets/VVIP.svg";
+import Normal from "../../../assets/Tier1.png";
+import VIP from "../../../assets/Tier2.png";
+import VVIP from "../../../assets/Tier3.png";
 import "./style.css";
 import ErrorPage from "../../ErrorPage";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import TicketToken from "../../../ethereum/TicketToken.js";
+import { config } from "../../../config/config";
 
 const Background = styled.div`
   background: #151515;
@@ -66,7 +67,7 @@ const Forum = styled.form`
   padding: 0 5%;
   text-align: left;
   margin-left: 10%;
-  margin-right:10%;
+  margin-right: 10%;
   margin-top: 24px;
   margin-bottom: 43px;
 
@@ -110,7 +111,7 @@ const Redeem = ({ account }) => {
   };
 
   const saveData = async () => {
-    const url = "https://jorrdaarevent.kraznikunderverse.com/users";
+    const url = `${config.apiBaseUrl}/users`;
     const post_data = {
       name: user.fullName,
       optionalName: user.displayName, // whatsapp no.
@@ -159,7 +160,7 @@ const Redeem = ({ account }) => {
       {tokenOwned ? (
         <Background>
           <Container>
-            <Title className="title">Redeem  your NFTicket</Title>
+            <Title className="title">Redeem your NFTicket</Title>
             <Description>Get your QR Code</Description>
 
             <TicketBox>

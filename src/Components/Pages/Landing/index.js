@@ -5,16 +5,16 @@ import { NavLink } from "react-router-dom";
 import "./style.css";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
-import Thumbnail from "../../../assets/Thumbnail.jpeg";
+// import Thumbnail from "../../../assets/Thumbnail.jpeg";
 import WalletPopUp from "../../ConnectWallet/WalletPopup";
 import Wallet from "../../../assets/wallet.svg";
 // import Play from "../../assets/logo.png";
 
-const Background = styled.div`
-  background-image: url(${Thumbnail});
-  width: 100%;
-  height: auto;
-`;
+// const Background = styled.div`
+//   background-image: url(${Thumbnail});
+//   width: 100%;
+//   height: auto;
+// `;
 
 const Landing = ({
   account,
@@ -52,8 +52,7 @@ const Landing = ({
           </NavLink>
 
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-            </Nav>
+            <Nav className="me-auto"></Nav>
             <Nav>
               {isOrganizer ? (
                 <Nav.Link className="text">
@@ -74,12 +73,8 @@ const Landing = ({
               </Nav.Link>
               <Nav.Link className="">
                 {/* BuyTicket */}
-                <NavLink
-                  exact
-                  to={"./video"}
-                  className="Video"
-                >
-                  Buy Tickets 
+                <NavLink exact to={"./video"} className="Video">
+                  Buy Tickets
                 </NavLink>
               </Nav.Link>
               {/* <Nav.Link href="/qrcode" className="tet">
@@ -94,15 +89,15 @@ const Landing = ({
             </Nav>
           </Navbar.Collapse>
           <Nav.Link className="mobile">
-                {/* BuyTicket */}
-                <NavLink
-                  exact
-                  to={haveTokens ? "/tickets/show" : "/tickets/buy"}
-                  className="mobile"
-                >
-                  Tickets
-                </NavLink>
-              </Nav.Link>
+            {/* BuyTicket */}
+            <NavLink
+              exact
+              to={haveTokens ? "/tickets/show" : "/tickets/buy"}
+              className="mobile"
+            >
+              Tickets
+            </NavLink>
+          </Nav.Link>
           {account === "" || typeof account === "undefined" ? (
             // <button href="" className="button" onClick={onConnectWallet}>
             //   <Popup
@@ -140,7 +135,6 @@ const Landing = ({
               </h6>
             </button>
           )}
-
         </Container>
       </Navbar>
 
@@ -154,7 +148,7 @@ const Landing = ({
         allowfullscreen
       ></iframe> */}
 
-      <Background></Background>
+      {/* <Background></Background> */}
     </>
   );
 };

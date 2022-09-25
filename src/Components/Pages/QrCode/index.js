@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ErrorPage from "../../ErrorPage";
 import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../../config/config";
 
 const Background = styled.div`
   background: #151515;
@@ -28,13 +29,11 @@ const Container = styled.div`
   margin: auto;
 
   @media (max-width: 800px) {
-    width:400px;
+    width: 400px;
     margin: 20px 20px 20px 50px;
     height: 600px;
     padding: 20px 20px 20px 20px;
   }
-
-
 `;
 
 const Title = styled.div`
@@ -100,7 +99,7 @@ const QrCode = ({ account }) => {
 
   const getIfTokenScanned = async () => {
     try {
-      const url = `https://jorrdaarevent.kraznikunderverse.com/event/${id}`;
+      const url = `${config.apiBaseUrl}/event/${id}`;
       const res = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -122,7 +121,7 @@ const QrCode = ({ account }) => {
 
   const getTokenRedeemData = async () => {
     try {
-      const url = `https://jorrdaarevent.kraznikunderverse.com/users/${account}/${id}`;
+      const url = `${config.apiBaseUrl}/users/${account}/${id}`;
       const { data } = await axios.get(url, {
         headers: {
           validate: process.env.REACT_APP_VALIDATE_TOKEN,
@@ -144,7 +143,7 @@ const QrCode = ({ account }) => {
 
   useEffect(() => {
     const run = async () => {
-      const url = `https://jorrdaarevent.kraznikunderverse.com/qrcode/${id}`;
+      const url = `${config.apiBaseUrl}/qrcode/${id}`;
 
       let hashFound = false;
       while (!hashFound) {
@@ -200,9 +199,9 @@ const QrCode = ({ account }) => {
             <Title>Hurray! You redeemed it successfully 🙋‍♂️</Title>
 
             <Description>
-              You are going to the ETH Global Event. This QR code is your access &
-              you can download it or access here on the website with your wallet
-              while entering ETH Global Event.
+              You are going to the ETH Global Event. This QR code is your access
+              & you can download it or access here on the website with your
+              wallet while entering ETH Global Event.
             </Description>
 
             <DetailsBox>
@@ -218,10 +217,8 @@ const QrCode = ({ account }) => {
 
             {encryptedHash ? (
               <Code>
-                {/* <QRCodeSVG value="$2b$10$2595K0J6lkp6bFhOhtu9WOQBdQVEFKrgOF0V/4aD74Yrch8ZyVTCO"></QRCodeSVG> */}
                 <QRCodeSVG
-                  // value={`https://dev-jorrdaarevent.web.app/organizer?tokenId=${id}&ownerAddress=${account}&ticketOwnerName=${redeemData.name}&encryptedHash=${encryptedHash}`}
-                  value={`https://jorrdaarevent.com/organizer?tid=${id}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
+                  value={`https://tickets.kraznikunderverse.com/organizer?tid=${id}&owner=${account}&name=${redeemData.name}&hash=${encryptedHash}`}
                 ></QRCodeSVG>
               </Code>
             ) : (
@@ -231,10 +228,6 @@ const QrCode = ({ account }) => {
                 Reload and connect wallet if not displayed in 2 mins..
               </Code>
             )}
-
-            {/* <Code>
-              <QRCodeSVG value={`test`}></QRCodeSVG>
-            </Code> */}
           </Container>
         </Background>
       ) : (
