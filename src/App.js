@@ -30,6 +30,7 @@ import BuyTickets from "./Components/Pages/BuyTicket";
 
 import Organizer from "./Components/Pages/Organizer";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import { config } from "./config/config";
 
 const changeNetwork = async () => {
   try {
@@ -40,7 +41,7 @@ const changeNetwork = async () => {
       method: "wallet_switchEthereumChain",
       params: [
         {
-          chainId: `0x${Number(1).toString(16)}`, // mumbai = 80001 // polygon = 137
+          chainId: `0x${Number(config.chainId).toString(16)}`, // mumbai = 80001 // polygon = 137
         },
       ],
     });
@@ -95,9 +96,9 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   changeNetwork();
-  // }, [chainId]);
+  useEffect(() => {
+    changeNetwork();
+  }, [chainId]);
 
   const checkForUnredeemedTickets = async () => {
     try {
@@ -170,7 +171,11 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Tick></Tick>} />
-          <Route exact path="/video" element={<BuyTickets />} />
+          <Route
+            exact
+            path="/video"
+            element={<BuyTickets account={account} />}
+          />
           <Route exact path="/tickets/buy" element={<BuyTicket />} />
           <Route
             exact

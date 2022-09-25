@@ -1,13 +1,16 @@
 const config_goerli = {
-  contractAddress: "0x68625A90C8010390bB836b88738952BcA77b8D80",
+  apiBaseUrl: "https://ethglobalhacktickets.kraznikunderverse.com",
+  contractAddress: "0x765B2Be1C0FFFE2E184C15117d97eb7E922d4f68",
   alchemyUrl:
     "https://eth-goerli.g.alchemy.com/v2/WNP4-RNcdG_H3dE-9r79xoVHgKOyBqBD",
+  chainId: 5,
 };
 
 const config_opt_goerli = {
   contractAddress: "",
   alchemyUrl:
     "https://opt-goerli.g.alchemy.com/v2/sNcVde-i7VmacXUQCQ-o_RrVyJyttTwX",
+  chainId: 420,
 };
 
 export const config = config_goerli;
